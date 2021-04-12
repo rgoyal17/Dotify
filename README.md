@@ -1,5 +1,5 @@
 
-# Dotify (HW1 - Layouts & Events) by [Rishabh Goyal]
+# Dotify (HW1 - Layouts & Events) by Rishabh Goyal
 
 Let's you listen to music on the cloud
 
