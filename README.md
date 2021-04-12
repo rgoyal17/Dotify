@@ -7,4 +7,4 @@ Let's you listen to music on the cloud
 None
 
 ## Screenshots
-<img src="./screenshot1.jpg" alt="Screenshot of the app" height="500" />
+<img src="screenshot.jpg" alt="Screenshot of the app" height="500" />
