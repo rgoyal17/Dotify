@@ -4,7 +4,7 @@
 Let's you listen to music on the cloud
 
 ## Extra credit
-None
+I have completed extra credit #1, #2, and #3
 
 ## Screenshots
 <img src="screenshot.jpg" alt="Screenshot of the app" height="500" />
