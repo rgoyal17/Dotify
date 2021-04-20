@@ -32,6 +32,8 @@ class PlayerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).apply { setContentView(root) }
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         with(binding) {
 
             val song: Song? = intent.getParcelableExtra<Song>(SONG_KEY)
@@ -68,5 +70,10 @@ class PlayerActivity : AppCompatActivity() {
                 true
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }
