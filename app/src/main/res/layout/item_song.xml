@@ -22,14 +22,12 @@
             android:id="@+id/tvSongTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name of the Song"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvArtistName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name of the Artist"
             android:textSize="18sp" />
 
     </LinearLayout>

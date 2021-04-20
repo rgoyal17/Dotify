@@ -8,7 +8,7 @@ import edu.uw.rgoyal17.dotify.databinding.ItemSongBinding
 
 class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter<SongListAdapter.SongViewHolder>() {
 
-    var onSongClickListener: (name: String, artist: String) -> Unit = {_, _ -> }
+    var onSongClickListener: (name: Song) -> Unit = {_ -> }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
         val binding = ItemSongBinding.inflate(LayoutInflater.from(parent.context))
@@ -26,7 +26,7 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
             tvArtistName.text = song.artist
 
             root.setOnClickListener {
-                onSongClickListener(song.title, song.artist)
+                onSongClickListener(song)
             }
         }
     }

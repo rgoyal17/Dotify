@@ -3,6 +3,7 @@ package edu.uw.rgoyal17.dotify
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.ericchee.songdataprovider.Song
 import com.ericchee.songdataprovider.SongDataProvider
 import edu.uw.rgoyal17.dotify.databinding.ActivitySongListBinding
 
@@ -18,10 +19,17 @@ class SongListActivity : AppCompatActivity() {
             val adapter = SongListAdapter(songs)
             rvSongs.adapter = adapter
 
-            adapter.onSongClickListener = { name, artist ->
-                tvMiniPlayerText.text = "$name - $artist"
+            lateinit var playerSong: Song
+
+            adapter.onSongClickListener = { song ->
+                playerSong = song
+                tvMiniPlayerText.text = root.context.getString(R.string.mini_player_text, song.title, song.artist)
                 tvMiniPlayerText.visibility = View.VISIBLE
                 miniPlayerButton.visibility = View.VISIBLE
+            }
+
+            tvMiniPlayerText.setOnClickListener {
+                navigateToPlayerActivity(this@SongListActivity, playerSong)
             }
 
             miniPlayerButton.setOnClickListener {

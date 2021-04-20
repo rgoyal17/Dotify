@@ -21,7 +21,6 @@
         android:id="@+id/tvMiniPlayerText"
         android:layout_width="280dp"
         android:layout_height="100dp"
-        android:text="Title - Artist"
         android:textSize="20sp"
         android:gravity="center_vertical"
         android:padding="15dp"
@@ -30,13 +29,14 @@
         app:layout_constraintTop_toBottomOf="@id/rvSongs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:elevation="5dp"/>
 
     <Button
         android:id="@+id/miniPlayerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shuffle"
+        android:text="@string/mini_player_button"
         android:layout_marginEnd="15dp"
         app:layout_constraintTop_toTopOf="@id/tvMiniPlayerText"
         app:layout_constraintBottom_toBottomOf="@id/tvMiniPlayerText"
