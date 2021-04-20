@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ericchee.songdataprovider.Song
@@ -38,6 +37,7 @@ class PlayerActivity : AppCompatActivity() {
 
             val song: Song? = intent.getParcelableExtra<Song>(SONG_KEY)
 
+            // update song name, title, and album image
             if (song != null) {
                 imageViewDotify.setImageResource(song.largeImageID)
                 textViewSongTitle.text = song.title

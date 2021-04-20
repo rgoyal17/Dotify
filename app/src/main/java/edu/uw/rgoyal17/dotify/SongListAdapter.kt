@@ -44,7 +44,6 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
         val result = DiffUtil.calculateDiff(callback)
         result.dispatchUpdatesTo(this)
         this.listOfSongs = newListOfSongs
-
     }
 
     class SongViewHolder(val binding: ItemSongBinding): RecyclerView.ViewHolder(binding.root)

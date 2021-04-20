@@ -23,7 +23,6 @@
         android:id="@+id/textViewSongTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dotify Official Soundtrack"
         android:gravity="center"
         android:textSize="30sp"
         android:layout_marginTop="40dp"
@@ -39,8 +38,7 @@
         android:textSize="20sp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="dotinem" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewCounter"
