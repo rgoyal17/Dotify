@@ -1,5 +1,5 @@
 
-# Dotify (HW1 - Layouts & Events) by Rishabh Goyal
+# Dotify (HW2 - RecyclerView & Multiple Activities) by Rishabh Goyal
 
 Let's you listen to music on the cloud
 
@@ -7,4 +7,5 @@ Let's you listen to music on the cloud
 I have completed extra credit #1, #2, and #3
 
 ## Screenshots
-<img src="screenshot.jpg" alt="Screenshot of the app" height="500" />
+<img src="screenshot1.jpg" alt="Screenshot of the app" height="500" />
+<img src="screenshot2.jpg" alt="Screenshot of the app" height="500" />
