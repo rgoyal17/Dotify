@@ -1,6 +1,5 @@
 package edu.uw.rgoyal17.dotify
 
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
