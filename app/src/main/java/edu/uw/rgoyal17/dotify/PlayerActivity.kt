@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ericchee.songdataprovider.Song
@@ -26,6 +28,8 @@ fun navigateToPlayerActivity(context: Context, song: Song) {
 class PlayerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var song: Song? = null
+    private var playCount: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,23 +39,23 @@ class PlayerActivity : AppCompatActivity() {
 
         with(binding) {
 
-            val song: Song? = intent.getParcelableExtra<Song>(SONG_KEY)
+            song = intent.getParcelableExtra<Song>(SONG_KEY)
+
+            val songData: Song = song ?: return
 
             // update song name, title, and album image
-            if (song != null) {
-                imageViewDotify.setImageResource(song.largeImageID)
-                textViewSongTitle.text = song.title
-                textViewArtist.text = song.artist
-            }
+            imageViewDotify.setImageResource(songData.largeImageID)
+            textViewSongTitle.text = songData.title
+            textViewArtist.text = songData.artist
 
             // set number of plays to a random number
-            var randomNumber = Random.nextInt(0, 1000)
-            textViewCounter.text = "$randomNumber plays"
+            playCount = Random.nextInt(0, 1000)
+            textViewCounter.text = "$playCount plays"
 
             // increment the count of the number of plays
             imageViewPlay.setOnClickListener {
-                randomNumber += 1
-                textViewCounter.text = "$randomNumber plays"
+                playCount += 1
+                textViewCounter.text = "$playCount plays"
             }
 
             // Toast a message when clicked on next button
@@ -75,5 +79,18 @@ class PlayerActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return super.onSupportNavigateUp()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.player_settings_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val songData: Song = song ?: return false
+        when(item.itemId) {
+            R.id.app_bar_search -> navigateToSettingsActivity(this@PlayerActivity, songData, playCount)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

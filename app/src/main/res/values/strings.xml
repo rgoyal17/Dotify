@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">Dotify</string>
-
     <string name="mini_player_text">%s - %s</string>
     <string name="mini_player_button">SHUFFLE</string>
+    <string name="profile_button">PROFILE</string>
+    <string name="statistics_button">PROFILE STATISTICS</string>
+    <string name="about_button">ABOUT</string>
+    <string name="user_image">Jason Mendoza</string>
+    <string name="user_age">Age: 33</string>
+    <string name="user_email">Email: bortles@thegoodplace.com</string>
+    <string name="user_club">Favorite Club: Jacksonville Jaguars</string>
+    <string name="user_profession">Profession: Pre-Successful DJ</string>
+    <string name="creator">Creator: Rishabh Goyal</string>
+    <string name="version">Version %s</string>
+    <string name="university">University of Washington, Seattle</string>
+    <string name="year">Year: Junior</string>
+    <string name="major">Major: Computer Science</string>
+
 </resources>
