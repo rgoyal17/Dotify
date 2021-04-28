@@ -18,5 +18,9 @@
     <string name="song_count">\"%s\" has been played %d times!</string>
     <string name="play_count">%d plays</string>
     <string name="image_desc">Album image of the song</string>
+    <string name="app_logo">This is an image of our App Logo</string>
+    <string name="prev">previous button</string>
+    <string name="play">play button</string>
+    <string name="next">next button</string>
 
 </resources>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -13,6 +14,7 @@ import edu.uw.rgoyal17.dotify.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 private const val SONG_KEY = "song"
+private const val PLAY_COUNT_KEY = "playCount"
 
 fun navigateToPlayerActivity(context: Context, song: Song) {
     val intent = Intent(context, PlayerActivity::class.java)
@@ -37,6 +39,13 @@ class PlayerActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        playCount = Random.nextInt(0, 1000)
+
+        // recover play count if activity was destroyed and recreated
+        if (savedInstanceState != null) {
+            playCount = savedInstanceState.getInt(PLAY_COUNT_KEY, 0)
+        }
+
         with(binding) {
 
             song = intent.getParcelableExtra<Song>(SONG_KEY)
@@ -48,8 +57,7 @@ class PlayerActivity : AppCompatActivity() {
             textViewSongTitle.text = songData.title
             textViewArtist.text = songData.artist
 
-            // set number of plays to a random number
-            playCount = Random.nextInt(0, 1000)
+            // set number of plays to playCount
             textViewCounter.text = root.context.getString(R.string.play_count, playCount)
 
             // increment the count of the number of plays
@@ -74,6 +82,11 @@ class PlayerActivity : AppCompatActivity() {
                 true
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(PLAY_COUNT_KEY, playCount)
+        super.onSaveInstanceState(outState)
     }
 
     override fun onSupportNavigateUp(): Boolean {
