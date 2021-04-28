@@ -1,10 +1,10 @@
 
-# Dotify (HW2 - RecyclerView & Multiple Activities) by Rishabh Goyal
+# Dotify (HW3 - Fragments, Activity Lifecycle, & Rotation) by Rishabh Goyal
 
 Let's you listen to music on the cloud
 
 ## Extra credit
-I have completed extra credit #1, #2, and #3
+I have completed extra credit #1 and #2
 
 ## Screenshots
 <img src="screenshot1.jpg" alt="Screenshot of the app" height="500" />
