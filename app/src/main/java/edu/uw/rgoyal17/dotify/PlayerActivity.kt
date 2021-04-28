@@ -12,7 +12,7 @@ import com.ericchee.songdataprovider.Song
 import edu.uw.rgoyal17.dotify.databinding.ActivityMainBinding
 import kotlin.random.Random
 
-private const val SONG_KEY = "SONG_KEY"
+private const val SONG_KEY = "song"
 
 fun navigateToPlayerActivity(context: Context, song: Song) {
     val intent = Intent(context, PlayerActivity::class.java)
@@ -50,12 +50,12 @@ class PlayerActivity : AppCompatActivity() {
 
             // set number of plays to a random number
             playCount = Random.nextInt(0, 1000)
-            textViewCounter.text = "$playCount plays"
+            textViewCounter.text = root.context.getString(R.string.play_count, playCount)
 
             // increment the count of the number of plays
             imageViewPlay.setOnClickListener {
                 playCount += 1
-                textViewCounter.text = "$playCount plays"
+                textViewCounter.text = root.context.getString(R.string.play_count, playCount)
             }
 
             // Toast a message when clicked on next button

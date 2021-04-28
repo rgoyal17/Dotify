@@ -6,14 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.ericchee.songdataprovider.Song
 import edu.uw.rgoyal17.dotify.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
 
     private val navController by lazy { findNavController() }
 
+    private val safeArgs: SettingsFragmentArgs by navArgs()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentSettingsBinding.inflate(inflater)
+
+        val songData: Song = safeArgs.song
+        val playCount: Int = safeArgs.playCount
 
         with(binding) {
             btProfile.setOnClickListener {
@@ -21,7 +28,7 @@ class SettingsFragment : Fragment() {
             }
 
             btStatistics.setOnClickListener {
-                navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToStatisticsFragment())
+                navController.navigate(NavGraphDirections.actionGlobalStatisticsFragment(songData, playCount))
             }
 
             btAbout.setOnClickListener {

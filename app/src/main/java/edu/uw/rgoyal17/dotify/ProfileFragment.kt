@@ -10,9 +10,8 @@ import edu.uw.rgoyal17.dotify.databinding.FragmentProfileBinding
 class ProfileFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = FragmentProfileBinding.inflate(inflater);
-
-        return binding.root;
+        val binding = FragmentProfileBinding.inflate(inflater)
+        return binding.root
     }
 
 }

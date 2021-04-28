@@ -8,8 +8,8 @@ import androidx.navigation.findNavController
 import com.ericchee.songdataprovider.Song
 import edu.uw.rgoyal17.dotify.databinding.ActivitySettingsBinding
 
-private const val SONG_KEY = "SONG_KEY"
-private const val PLAY_COUNT_KEY = "PLAY_COUNT_KEY"
+private const val SONG_KEY = "song"
+private const val PLAY_COUNT_KEY = "playCount"
 
 fun navigateToSettingsActivity(context: Context, song: Song, playCount: Int) {
     val intent = Intent(context, SettingsActivity::class.java)
@@ -29,8 +29,9 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater).apply { setContentView(root) }
+        title = "Settings"
         with(binding) {
-
+            navController.setGraph(R.navigation.nav_graph, intent.extras)
         }
     }
 }

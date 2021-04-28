@@ -15,5 +15,8 @@
     <string name="university">University of Washington, Seattle</string>
     <string name="year">Year: Junior</string>
     <string name="major">Major: Computer Science</string>
+    <string name="song_count">\"%s\" has been played %d times!</string>
+    <string name="play_count">%d plays</string>
+    <string name="image_desc">Album image of the song</string>
 
 </resources>
