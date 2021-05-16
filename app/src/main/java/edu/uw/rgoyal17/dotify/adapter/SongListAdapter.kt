@@ -1,10 +1,11 @@
-package edu.uw.rgoyal17.dotify
+package edu.uw.rgoyal17.dotify.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ericchee.songdataprovider.Song
+import edu.uw.rgoyal17.dotify.callback.SongsDiffCallback
 import edu.uw.rgoyal17.dotify.databinding.ItemSongBinding
 
 class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter<SongListAdapter.SongViewHolder>() {

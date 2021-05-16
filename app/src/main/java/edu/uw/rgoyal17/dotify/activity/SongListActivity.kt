@@ -1,8 +1,13 @@
-package edu.uw.rgoyal17.dotify
+package edu.uw.rgoyal17.dotify.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import com.ericchee.songdataprovider.Song
+import com.ericchee.songdataprovider.SongDataProvider
+import edu.uw.rgoyal17.dotify.R
+import edu.uw.rgoyal17.dotify.adapter.SongListAdapter
 import edu.uw.rgoyal17.dotify.databinding.ActivitySongListBinding
 
 private const val SONG_KEY = "song"

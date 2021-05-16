@@ -1,6 +1,5 @@
-package edu.uw.rgoyal17.dotify
+package edu.uw.rgoyal17.dotify.fragment
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ericchee.songdataprovider.Song
+import edu.uw.rgoyal17.dotify.NavGraphDirections
+import edu.uw.rgoyal17.dotify.R
 import edu.uw.rgoyal17.dotify.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {

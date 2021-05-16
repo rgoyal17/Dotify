@@ -1,4 +1,4 @@
-package edu.uw.rgoyal17.dotify
+package edu.uw.rgoyal17.dotify.callback
 
 import androidx.recyclerview.widget.DiffUtil
 import com.ericchee.songdataprovider.Song

@@ -1,4 +1,4 @@
-package edu.uw.rgoyal17.dotify
+package edu.uw.rgoyal17.dotify.activity
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,8 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ericchee.songdataprovider.Song
+import edu.uw.rgoyal17.dotify.DotifyApplication
+import edu.uw.rgoyal17.dotify.R
 import edu.uw.rgoyal17.dotify.databinding.ActivityMainBinding
 import kotlin.random.Random
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ProfileFragment"
+    tools:context=".fragment.ProfileFragment"
     android:padding="30dp">
 
     <ImageView
@@ -12,6 +12,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/jason"
+        android:contentDescription="@string/user_image"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
