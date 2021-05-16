@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -30,8 +29,8 @@ fun navigateToPlayerActivity(context: Context, song: Song) {
 class PlayerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var song: Song? = null
-    private var playCount: Int = 0
+    private lateinit var song: Song
+    private lateinit var dotifyApp: DotifyApplication
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,31 +38,30 @@ class PlayerActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        playCount = Random.nextInt(0, 1000)
+        dotifyApp = this.applicationContext as DotifyApplication
+        dotifyApp.counter = Random.nextInt(0, 1000)
 
         // recover play count if activity was destroyed and recreated
         if (savedInstanceState != null) {
-            playCount = savedInstanceState.getInt(PLAY_COUNT_KEY, 0)
+            dotifyApp.counter = savedInstanceState.getInt(PLAY_COUNT_KEY, 0)
         }
 
         with(binding) {
 
-            song = intent.getParcelableExtra<Song>(SONG_KEY)
-
-            val songData: Song = song ?: return
+            song = intent.getParcelableExtra<Song>(SONG_KEY) ?: return
 
             // update song name, title, and album image
-            imageViewDotify.setImageResource(songData.largeImageID)
-            textViewSongTitle.text = songData.title
-            textViewArtist.text = songData.artist
+            imageViewDotify.setImageResource(song.largeImageID)
+            textViewSongTitle.text = song.title
+            textViewArtist.text = song.artist
 
             // set number of plays to playCount
-            textViewCounter.text = root.context.getString(R.string.play_count, playCount)
+            textViewCounter.text = root.context.getString(R.string.play_count, dotifyApp.counter)
 
             // increment the count of the number of plays
             imageViewPlay.setOnClickListener {
-                playCount += 1
-                textViewCounter.text = root.context.getString(R.string.play_count, playCount)
+                dotifyApp.counter += 1
+                textViewCounter.text = root.context.getString(R.string.play_count, dotifyApp.counter)
             }
 
             // Toast a message when clicked on next button
@@ -85,7 +83,7 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt(PLAY_COUNT_KEY, playCount)
+        outState.putInt(PLAY_COUNT_KEY, dotifyApp.counter)
         super.onSaveInstanceState(outState)
     }
 
@@ -100,9 +98,8 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val songData: Song = song ?: return false
         when(item.itemId) {
-            R.id.app_bar_search -> navigateToSettingsActivity(this@PlayerActivity, songData, playCount)
+            R.id.app_bar_search -> navigateToSettingsActivity(this@PlayerActivity, song)
         }
         return super.onOptionsItemSelected(item)
     }

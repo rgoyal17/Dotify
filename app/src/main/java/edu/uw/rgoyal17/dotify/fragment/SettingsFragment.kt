@@ -1,5 +1,6 @@
 package edu.uw.rgoyal17.dotify
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,14 +14,11 @@ import edu.uw.rgoyal17.dotify.databinding.FragmentSettingsBinding
 class SettingsFragment : Fragment() {
 
     private val navController by lazy { findNavController() }
-
     private val safeArgs: SettingsFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentSettingsBinding.inflate(inflater)
-
         val songData: Song = safeArgs.song
-        val playCount: Int = safeArgs.playCount
 
         with(binding) {
             btProfile.setOnClickListener {
@@ -28,7 +26,7 @@ class SettingsFragment : Fragment() {
             }
 
             btStatistics.setOnClickListener {
-                navController.navigate(NavGraphDirections.actionGlobalStatisticsFragment(songData, playCount))
+                navController.navigate(NavGraphDirections.actionGlobalStatisticsFragment(songData))
             }
 
             btAbout.setOnClickListener {
