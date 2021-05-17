@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.ericchee.songdataprovider.Song
 import edu.uw.rgoyal17.dotify.R
 import edu.uw.rgoyal17.dotify.databinding.ActivitySettingsBinding
+import edu.uw.rgoyal17.dotify.model.Song
 
 private const val SONG_KEY = "song"
 

@@ -7,10 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.ericchee.songdataprovider.Song
+import coil.load
 import edu.uw.rgoyal17.dotify.DotifyApplication
 import edu.uw.rgoyal17.dotify.R
 import edu.uw.rgoyal17.dotify.databinding.FragmentStatisticsBinding
+import edu.uw.rgoyal17.dotify.model.Song
 
 class StatisticsFragment : Fragment() {
 
@@ -28,7 +29,7 @@ class StatisticsFragment : Fragment() {
         val songData: Song = safeArgs.song
 
         with(binding) {
-            ivSongImage.setImageResource(songData.largeImageID)
+            ivSongImage.load(songData.largeImageURL)
             tvPlayCount.text = root.context.getString(R.string.song_count, songData.title, dotifyApp.counter)
         }
 

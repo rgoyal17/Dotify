@@ -4,17 +4,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.ericchee.songdataprovider.Song
-import com.ericchee.songdataprovider.SongDataProvider
+import androidx.lifecycle.lifecycleScope
+import edu.uw.rgoyal17.dotify.DotifyApplication
 import edu.uw.rgoyal17.dotify.R
 import edu.uw.rgoyal17.dotify.adapter.SongListAdapter
 import edu.uw.rgoyal17.dotify.databinding.ActivitySongListBinding
+import edu.uw.rgoyal17.dotify.model.Song
+import edu.uw.rgoyal17.dotify.model.SongList
+import kotlinx.coroutines.launch
 
 private const val SONG_KEY = "song"
 
 class SongListActivity : AppCompatActivity() {
 
-    private var playerSong: Song? = null
+    private lateinit var playerSong: Song
+    private val dotifyApplication: DotifyApplication by lazy { application as DotifyApplication }
+    private val dataRepository by lazy { dotifyApplication.dataRepository }
+    private lateinit var songs: List<Song>
+    private lateinit var adapter: SongListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +33,16 @@ class SongListActivity : AppCompatActivity() {
 
         with(binding) {
             // get all songs and setup the adapter
-            var songs = SongDataProvider.getAllSongs()
-            val adapter = SongListAdapter(songs)
+            songs = listOf()
+            adapter = SongListAdapter(songs)
             rvSongs.adapter = adapter
+            loadSongs()
+
+            // load the songs by swipe pull down
+            pullDownContainer.setOnRefreshListener {
+                loadSongs()
+                pullDownContainer.isRefreshing = false
+            }
 
             // show the mini player if it was shown before activity got destroyed and is recreated now
             // (if it was not shown before, then song = null so we would not show the mini player)
@@ -61,13 +75,28 @@ class SongListActivity : AppCompatActivity() {
 
             // navigate to larger music player when clicked on mini player
             tvMiniPlayerText.setOnClickListener {
-                val song = playerSong ?: return@setOnClickListener
+                val song = playerSong
                 navigateToPlayerActivity(this@SongListActivity, song)
             }
 
             // shuffle songs
             miniPlayerButton.setOnClickListener {
                 adapter.updateSongs(songs.toMutableList().shuffled())
+            }
+        }
+    }
+
+    private fun loadSongs() {
+        lifecycleScope.launch {
+            runCatching {
+                Toast.makeText(this@SongListActivity, "loading...", Toast.LENGTH_SHORT).show()
+
+                val songList: SongList = dataRepository.getSongs()
+                songs = songList.songs
+
+                adapter.updateSongs(songs)
+            }.onFailure {
+                Toast.makeText(this@SongListActivity, "Error occurred when fetching songs", Toast.LENGTH_SHORT).show()
             }
         }
     }

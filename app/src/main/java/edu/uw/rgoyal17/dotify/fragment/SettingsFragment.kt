@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.ericchee.songdataprovider.Song
 import edu.uw.rgoyal17.dotify.NavGraphDirections
 import edu.uw.rgoyal17.dotify.R
 import edu.uw.rgoyal17.dotify.databinding.FragmentSettingsBinding
+import edu.uw.rgoyal17.dotify.model.Song
 
 class SettingsFragment : Fragment() {
 

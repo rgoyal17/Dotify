@@ -8,10 +8,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.ericchee.songdataprovider.Song
+import coil.load
 import edu.uw.rgoyal17.dotify.DotifyApplication
 import edu.uw.rgoyal17.dotify.R
 import edu.uw.rgoyal17.dotify.databinding.ActivityMainBinding
+import edu.uw.rgoyal17.dotify.model.Song
 import kotlin.random.Random
 
 private const val SONG_KEY = "song"
@@ -53,7 +54,7 @@ class PlayerActivity : AppCompatActivity() {
             song = intent.getParcelableExtra<Song>(SONG_KEY) ?: return
 
             // update song name, title, and album image
-            imageViewDotify.setImageResource(song.largeImageID)
+            imageViewDotify.load(song.largeImageURL)
             textViewSongTitle.text = song.title
             textViewArtist.text = song.artist
 

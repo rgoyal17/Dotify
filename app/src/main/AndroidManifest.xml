@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.uw.rgoyal17.dotify">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".DotifyApplication"
         android:allowBackup="true"

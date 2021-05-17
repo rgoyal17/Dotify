@@ -1,7 +1,7 @@
 package edu.uw.rgoyal17.dotify.callback
 
 import androidx.recyclerview.widget.DiffUtil
-import com.ericchee.songdataprovider.Song
+import edu.uw.rgoyal17.dotify.model.Song
 
 class SongsDiffCallback(private val newSongs: List<Song>, private val oldSongs: List<Song>): DiffUtil.Callback() {
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

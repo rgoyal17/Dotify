@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_settings" >
         <argument
             android:name="song"
-            app:argType="com.ericchee.songdataprovider.Song" />
+            app:argType="edu.uw.rgoyal17.dotify.model.Song" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -31,7 +31,7 @@
         tools:layout="@layout/fragment_statistics" >
         <argument
             android:name="song"
-            app:argType="com.ericchee.songdataprovider.Song" />
+            app:argType="edu.uw.rgoyal17.dotify.model.Song" />
     </fragment>
     <action
         android:id="@+id/action_global_statisticsFragment"
