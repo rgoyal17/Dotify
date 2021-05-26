@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.SettingsFragment"
     android:padding="30dp"
     android:orientation="vertical">
@@ -25,5 +26,11 @@
         android:layout_height="wrap_content"
         android:text="@string/about_button" />
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchNotificationsEnabled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auto_refresh"
+        app:switchPadding="20dp"/>
 
 </LinearLayout>

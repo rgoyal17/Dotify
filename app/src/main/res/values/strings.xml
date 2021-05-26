@@ -22,5 +22,6 @@
     <string name="prev">previous button</string>
     <string name="play">play button</string>
     <string name="next">next button</string>
+    <string name="auto_refresh">Auto Refresh</string>
 
 </resources>
