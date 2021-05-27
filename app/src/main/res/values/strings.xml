@@ -23,5 +23,7 @@
     <string name="play">play button</string>
     <string name="next">next button</string>
     <string name="auto_refresh">Auto Refresh</string>
+    <string name="new_music">New Uploaded Music</string>
+    <string name="new_music_channel_description">This is a channel that notifies when there is new music uploaded</string>
 
 </resources>
