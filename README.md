@@ -1,5 +1,5 @@
 
-# Dotify (HW4 - Application, JSON parsing, HTTP REST calls) by Rishabh Goyal
+# Dotify (HW5 - WorkManager & Notifications) by Rishabh Goyal
 
 Let's you listen to music on the cloud
 
